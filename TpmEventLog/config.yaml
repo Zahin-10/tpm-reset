@@ -1,0 +1,27 @@
+# config.yaml
+# Step 1: Parse log
+log_parser: tcg # or yaml
+log_file: "data/TCGlog_SRTMCurrent.json" # Path to the log file
+db_file: "db/logs.json"
+store_raw_events: false
+
+# Step 2: Create summary
+summary_pcr: 7
+# source_id will be derived or needs a way to be specified if not derivable
+
+# Step 3: Extend PCR
+extend_tcti: "swtpm:host=localhost,port=2321"
+extend_cert_path: "data/MicWinProPCA2011_2011-10-19.crt"
+# summary_file_path will be auto-generated
+
+# Step 4: PCR7 Digest
+# pcr7_digest_cert: "path/to/your/cert.der"
+# pcr7_digest_expected: "optional_expected_digest_value" # Optional
+# pcr7_digest_save_path: "output/pcr7_uefi_variable_data.bin" # Optional
+
+# Unified UEFI GUID for PCR7 operations (used by extend_cert_path and pcr7_digest_cert if they are set)
+pcr7_uefi_guid: "12345678-1234-1234-1234-1234567890ab" # Optional: Custom UEFI GUID. If omitted, OVMF_GUID is default.
+
+# Step 5: Parse BitLocker VMK
+bitlocker_metadata_file: "metadata-secboot" # Name of the file in data/metadata
+bitlocker_output_dir: "output/metadata"

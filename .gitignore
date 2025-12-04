@@ -1,0 +1,10 @@
+.idea/
+*.json
+*.ctx
+data/
+data.txt
+*.dat
+__pycache__
+.DS_Store
+.vscode
+output/
